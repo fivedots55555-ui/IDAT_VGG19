@@ -1,0 +1,7 @@
+{
+  "change": "VGG19 official preprocess_input applied after training rotation and to validation/test",
+  "unchanged": "same split, frozen backbone, head, Adam 0.001, batch size 5, 50 epochs",
+  "best_validation_epoch": 50,
+  "source": "https://keras.io/api/applications/vgg/vgg_preprocessing/",
+  "limitation": "This test set was already inspected for the earlier baseline and fine-tuning comparison."
+}

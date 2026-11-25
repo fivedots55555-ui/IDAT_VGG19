@@ -49,6 +49,20 @@ Run this separate comparison after downloading the data:
 
 The experiment outputs are in `comparison/`. The trained checkpoints remain local because of their size.
 
+## VGG19 preprocessing experiment
+
+`preprocessing_experiment.py` keeps the comparison split, frozen VGG19 backbone, classifier head, optimizer, and 50-epoch schedule. Its single change is to apply Keras VGG19's documented ImageNet preprocessing after training augmentation and to validation/test images. The earlier reproduction divided RGB values by 255; this experiment converts RGB to BGR and subtracts ImageNet channel means as specified by Keras.
+
+The best-validation-loss checkpoint classified **55/55 test images correctly** (100% accuracy, defective-class recall, and defective-class F1), compared with **54/55** for the frozen baseline on the same split. It correctly classified the previously missed defective image `IMG_9080.JPG`. Outputs and the exact configuration are in `comparison/official_preprocessing/`.
+
+This is an **exploratory improvement**. The 55-image test set had already been examined in the earlier baseline and fine-tuning work, and the image-level split may include related frames across subsets. The result should not be presented as an unbiased estimate for new print runs. A fresh print-run-level test would be needed to assess generalization.
+
+Run after downloading the dataset and completing `compare.py` so its saved split exists:
+
+```powershell
+.\.venv\Scripts\python.exe preprocessing_experiment.py
+```
+
 ## Sources
 
 1. M. M. Ahsan, S. Raman, Y. Liu, and Z. Siddique, "Defect analysis of 3D printed object using transfer learning approaches," *Expert Systems with Applications*, vol. 253, art. 124293, 2024, doi: 10.1016/j.eswa.2024.124293.
