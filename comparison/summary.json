@@ -1,0 +1,14 @@
+{
+  "frozen_baseline": {
+    "accuracy": 0.9818181818181818,
+    "defect_recall": 0.9642857142857143,
+    "defect_f1": 0.9818181818181818,
+    "best_validation_epoch": 49
+  },
+  "block5_finetuned": {
+    "accuracy": 0.9818181818181818,
+    "defect_recall": 0.9642857142857143,
+    "defect_f1": 0.9818181818181818,
+    "best_validation_epoch": 18
+  }
+}

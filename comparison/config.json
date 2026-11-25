@@ -1,0 +1,7 @@
+{
+  "split": "stratified 60% train, 20% validation, 20% test; random_state 42",
+  "baseline": "frozen ImageNet VGG19, same head and preprocessing as public notebook, Adam 0.001, 50 epochs",
+  "improvement": "start from final frozen baseline; unfreeze VGG19 block 5; Adam 0.00001, 20 epochs",
+  "selection": "lowest validation loss checkpoint; evaluate test once per model",
+  "limitation": "Images were split individually; images from one print or capture series may span splits."
+}

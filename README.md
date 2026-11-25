@@ -1,6 +1,6 @@
 # VGG19 reproduction for IDAT7215 Project 4
 
-This folder contains one **VGG19 + Adam** reproduction attempt using the authors' public AMdataset images. It is intended for integration into the group's eight-model project. The improvement phase has not started.
+This folder contains one **VGG19 + Adam** reproduction attempt using the authors' public AMdataset images, followed by a separate fine-tuning comparison. It is intended for integration into the group's eight-model project.
 
 ## Result and scope
 
@@ -32,8 +32,22 @@ The download verifies each image against the authors' Git tree hash. The public 
 - `results/accuracy.png`, `loss.png`, and `confusion_matrix_final.png` are ready to use in the results section and slides.
 - `results/config.json`, `environment.json`, `architecture.txt`, and `split.csv` document the experimental setup.
 - `results/history.csv`, `predictions_final.csv`, and `metrics_final.json` provide numbers behind the figures.
-- The report should discuss the 55-image validation result, the shared validation/holdout limitation, the dataset count discrepancy, and the unverified Study One correspondence. No performance improvement is claimed yet.
+- The report should discuss the 55-image validation result, the shared validation/holdout limitation, the dataset count discrepancy, and the unverified Study One correspondence.
 - The individual contribution section can describe VGG19 implementation, experiment execution, verification, and analysis, with attribution for adapted author code.
+
+## Separate improvement comparison
+
+`compare.py` performs a new stratified 60/20/20 train/validation/test split and saves its exact membership in `comparison/split.csv`. It trains the frozen VGG19 baseline for 50 epochs, then unfreezes only block 5 and fine-tunes for 20 epochs at learning rate 0.00001. Both models use the same split, and their best checkpoints are chosen by validation loss before scoring the test images.
+
+Both models classified **54/55 test images correctly**, giving accuracy 98.18% and defective-class recall 96.43%. Both missed the same defective image, `IMG_9080.JPG`. This trial **did not improve test accuracy, recall, or F1**. It should be reported as an attempted modification without measured performance gain. The random image split may put visually similar frames from a single print run in different subsets, so these results do not establish performance on new print runs.
+
+Run this separate comparison after downloading the data:
+
+```powershell
+.\.venv\Scripts\python.exe compare.py
+```
+
+The experiment outputs are in `comparison/`. The trained checkpoints remain local because of their size.
 
 ## Sources
 
