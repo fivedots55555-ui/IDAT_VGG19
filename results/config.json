@@ -1,0 +1,26 @@
+{
+  "model": "VGG19",
+  "weights": "imagenet",
+  "image_size": 224,
+  "normalization": "RGB / 255",
+  "frozen_backbone": true,
+  "pooling": "AveragePooling2D(4,4)",
+  "dense": 64,
+  "dropout": 0.5,
+  "output": "2-way softmax",
+  "loss": "binary_crossentropy",
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 5,
+  "epochs": 50,
+  "seed": 42,
+  "split": "80/20 random_state=42, without stratification",
+  "rotation_range": 15,
+  "evaluation": "20% holdout reused for validation, following author notebook",
+  "differences": [
+    "Sorted file paths; original notebook file order unavailable",
+    "Use all batches per epoch to avoid Keras 3 iterator exhaustion with floor steps",
+    "Explicit global seed 42; original notebook does not fix all seeds",
+    "Public dataset subset; exact paper dataset correspondence unverified"
+  ]
+}

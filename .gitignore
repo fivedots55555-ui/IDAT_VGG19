@@ -1,0 +1,7 @@
+.venv/
+.keras/
+__pycache__/
+data/
+results/baseline_*/
+*.keras
+*.log

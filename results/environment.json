@@ -1,0 +1,11 @@
+{
+  "tensorflow": "2.16.2",
+  "numpy": "1.26.4",
+  "classes": [
+    "badcylinder",
+    "goodcylinder"
+  ],
+  "devices": [
+    "PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')"
+  ]
+}
