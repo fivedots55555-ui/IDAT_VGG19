@@ -2,6 +2,9 @@
 .keras/
 __pycache__/
 data/
+study3/data/
+study3/.venv/
+study3/.keras/
 results/baseline_*/
 *.keras
 *.log

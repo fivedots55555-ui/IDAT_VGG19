@@ -1,0 +1,10 @@
+{
+  "initial_weights": "best validation checkpoint from study3/vgg_preprocess",
+  "trainable_vgg_layers": "block5 only",
+  "learning_rate": 1e-05,
+  "batch_size": 30,
+  "epochs": 10,
+  "selection": "lowest validation loss checkpoint",
+  "best_validation_epoch": 9,
+  "limitation": "Exploratory follow-up after the test set was inspected in prior experiments."
+}

@@ -1,0 +1,26 @@
+{
+  "source": "Ahsan et al., Expert Systems with Applications 253 (2024) 124293, Table 1 and Section 4",
+  "data": "Kaggle 3D-Printer Defected Dataset, public GitHub mirror pingkung/3D-Printer-Defected-Dataset",
+  "class_counts": {
+    "defected": [
+      528,
+      78,
+      153
+    ],
+    "no_defected": [
+      561,
+      81,
+      156
+    ]
+  },
+  "split": "class-wise shuffled with seed 42 to match paper counts; exact author image membership unavailable",
+  "model": "ImageNet VGG19 frozen convolutional base, average pooling 4x4, flatten, dense 64 ReLU, dropout 0.5, softmax 2",
+  "optimizer": "Adam, learning rate 0.001",
+  "batch_size": 30,
+  "epochs": 30,
+  "preprocessing": "tf.keras.applications.vgg19.preprocess_input",
+  "augmentation": "rotation_range=15, fill_mode=nearest on training images",
+  "selection": "lowest validation loss checkpoint",
+  "best_validation_epoch": 29,
+  "limitation": "Paper reports mean and standard deviation; this is one deterministic split/run."
+}

@@ -1,5 +1,11 @@
 # VGG19 reproduction for IDAT7215 Project 4
 
+## Paper study mapping and current work
+
+The published paper has three distinct studies. Study One uses the authors' small laboratory dataset (272 images), Study Two uses their imbalanced augmented dataset (3017 images), and Study Three uses the separate Kaggle **3D-Printer Defected Dataset** (1557 images). See [Study Three experiments](study3/README.md) for the current paper-aligned reproduction and improvement work.
+
+The older 271-image experiment documented below follows the authors' public notebook, but it does **not** match the paper's Study One image count, 70/10/20 split, batch size 8, or 30-epoch schedule. Its 55-image result must not be described as a strict Study One reproduction or an independent test result.
+
 This folder contains one **VGG19 + Adam** reproduction attempt using the authors' public AMdataset images, followed by a separate fine-tuning comparison. It is intended for integration into the group's eight-model project.
 
 ## Result and scope
